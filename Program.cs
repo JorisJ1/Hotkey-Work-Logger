@@ -19,7 +19,7 @@ namespace Hotkey_Work_Logger {
 
             // Determine file paths.
             string workItemsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "workitems.ini");
-            string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.csv.txt");
+            string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log" + DateTime.Now.ToString("yyyy-MM-dd") + ".csv.txt");
 
             // Read work items from the INI file.
             // If the file does not exist, create and fill it with some example work items.
