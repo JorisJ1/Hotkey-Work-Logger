@@ -74,10 +74,7 @@ namespace Hotkey_Work_Logger {
 
             } if (key.KeyChar == 'v') {
                 // Open the log file with the default application.
-                Process fileopener = new Process();
-                fileopener.StartInfo.FileName = logPath;
-                fileopener.Start();
-                Environment.Exit(0);
+                OpenLogFile(logPath);
             } else if (workItems.TryGetValue(char.ToUpper(key.KeyChar), out string workItemName)) {
                 // A work item exists for the key entered; write an entry in the log file.
                 string logLine = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + sep + workItemName + Environment.NewLine;
@@ -85,8 +82,18 @@ namespace Hotkey_Work_Logger {
                 Environment.Exit(0);
             } else {
                 Console.WriteLine(Environment.NewLine + "No work item found for this key! (press any key to close)");
-                Console.ReadKey();
             }   
+        }
+
+        private static void OpenLogFile(string path) {
+            if (File.Exists(path)) {
+                Process fileopener = new Process();
+                fileopener.StartInfo.FileName = path;
+                fileopener.Start();
+                Environment.Exit(0);
+            } else {
+                Console.WriteLine(Environment.NewLine + "Log file not found! (press any key to close)");
+            }
         }
     }
 }
