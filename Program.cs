@@ -5,15 +5,8 @@ using System.Globalization;
 using System.IO;
 
 namespace Hotkey_Work_Logger {
-
-    /// <summary>
-    ///  Might speed up the Shortcut Key delay in Windows 10:
-    /// - Turn off specific background apps at Settings -> Privacy -> Background Apps.
-    /// - Killing "Application Frame Host" (ApplicationFrameHost.exe) (if you kill this you can't run modern apps).
-    /// - Disabling the 'SysMain' service (previously called SuperFetch).
-    /// </summary>
     class Program {
-        static void Main(string[] args) {
+        static void Main() {
 
             Console.WriteLine("Hotkey Work Logger");
 
